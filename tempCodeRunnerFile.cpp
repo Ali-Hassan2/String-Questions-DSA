@@ -1,44 +1,40 @@
-#include<iostream>
+#include <iostream>
+#include<vector>
 using namespace std;
 
-string reverse(string str)
+vector<int> check(int n, int d)
 {
-    int size = str.length() - 1;
+    char target = d + '0';
 
-    bool freq[256] = {false};
-    string result = "";
+    vector<int> res;
 
-    if(str.empty())
+    for(int i = 0; i <= n; i++)
     {
-        return "";
-    }
+        string str = to_string(i);
 
-    for(int i = size; i >= 0; i--)
-    {
-        char ch = str[i];
-
-        if(ch != ' ' && !freq[ch])
+        if(str.find(target) != string::npos)
         {
-            result += ch;
-            freq[ch] = true;
+            res.push_back(i);
         }
     }
 
-    return result;
+    return (res.empty()) ? vector<int>{-1} : res;
 }
 
 
+int main() {
 
-int main()
-{
+    int number = 20;
 
-    string sample = "GEEKS FOR GEEKS";
+    int target = 5;
 
+    vector<int> res = check(number,target);
 
-    string result = reverse(sample);
-
-    cout << "The result is: " << result << endl;
-
-
+    for(auto num : res)
+    {
+        cout << num <<  " ";
+    }
+    cout << endl;
+    
     return 0;
 }
