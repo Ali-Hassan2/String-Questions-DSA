@@ -1,40 +1,35 @@
 #include <iostream>
-#include<vector>
 using namespace std;
 
-vector<int> check(int n, int d)
+int countofsuchstrings(string str)
 {
-    char target = d + '0';
+    int n = str.length();
+    int count = 0;
 
-    vector<int> res;
-
-    for(int i = 0; i <= n; i++)
+    for(int i = 0; i < n; i++)
     {
-        string str = to_string(i);
-
-        if(str.find(target) != string::npos)
+        for(int j = i; j < n; j++)
         {
-            res.push_back(i);
+            if(str[i] == str[j])
+            {
+                count++;
+            }
+
         }
     }
 
-    return (res.empty()) ? vector<int>{-1} : res;
+    return count;
 }
 
 
 int main() {
+    
 
-    int number = 20;
+    string test_case = "abcab";
 
-    int target = 5;
+    int result = countofsuchstrings(test_case);
 
-    vector<int> res = check(number,target);
-
-    for(auto num : res)
-    {
-        cout << num <<  " ";
-    }
-    cout << endl;
+    cout << "The count of such substrings is: " << result << endl;
     
     return 0;
 }
