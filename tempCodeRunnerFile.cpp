@@ -1,35 +1,34 @@
 #include <iostream>
 using namespace std;
 
-int divisible11(string s)
+string modify(string str)
 {
-    int evensum = 0;
-    int oddsum = 0;
+    string result = "";
 
-    for(int i = 0; i < s.length(); i++)
+    for(char ch : str)
     {
-        int digit = s[i] - '0';
+        char cha = toupper(ch);
 
-        if(i % 2 == 0)
-            oddsum += digit;
+        if(ch == ' ')
+        {
+            result += '_';
+        }
         else
-            evensum += digit;
+        {
+            result+= cha;
+        }
     }
 
-    if(abs(evensum - oddsum) % 11 == 0)
-        return 1;
-    else
-        return 0;
-
+    return result;
 }
 
 int main() {
 
-    string sample = "11";
-    int result = divisible11(sample);
+    string str = "geeks forgeeks.";
 
-    std::cout << "The result is: "  << result <<std::endl;
-    
+    string result = modify(str);
+
+    cout << "The result is:"  << result << endl;
     
     return 0;
 }
