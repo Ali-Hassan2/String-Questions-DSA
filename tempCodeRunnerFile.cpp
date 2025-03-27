@@ -1,34 +1,35 @@
 #include <iostream>
 using namespace std;
 
-string modify(string str)
+
+
+string replace(string str)
 {
     string result = "";
-
     for(char ch : str)
-    {
-        char cha = toupper(ch);
+    {   
+        if(ch >= 'a' && ch <= 'z')
+        {
+            result += ('z' - (ch - 'a'));
+        }
+        else if(ch >= 'A' && ch <= 'Z')
+        {
+            result += ('Z' - (ch - 'A'));
+        }
 
-        if(ch == ' ')
-        {
-            result += '_';
-        }
-        else
-        {
-            result+= cha;
-        }
     }
 
     return result;
 }
 
+
+
 int main() {
 
-    string str = "geeks forgeeks.";
+    string sample = "abc";
+    string result = replace(sample);
 
-    string result = modify(str);
-
-    cout << "The result is:"  << result << endl;
+    cout << "Result is: " << result << endl;
     
     return 0;
 }
