@@ -9,23 +9,6 @@ cin.tie(NULL);
         int max_count = 0;
         int cnt1 = 0, cnt2 = 0;
 
-
-        // string test = "";
-        // for(int i = 0; i < sample.length(); i++){
-        //     for(int j = i ; j < sample.length(); j++){
-
-        //         int cnt1 = 0, cnt2 = 0;
-        //         for(int k = i; k <= j; k++){
-        //             if(sample[k] == '1') cnt1++;
-        //             else cnt2++;
-
-        //         }
-        //         if(cnt1 == cnt2) max_count++;
-
-        //     }
-        // }
-
-
         for (char ch : sample){
             if(ch == '0') cnt1++;
             else cnt2++;
